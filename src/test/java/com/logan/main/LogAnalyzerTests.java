@@ -24,4 +24,12 @@ public class LogAnalyzerTests {
 		Assert.assertTrue(isValid);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void isValidLogFilename_EmptyFilename_ThrowsException() {
+		LogAnalyzer logAnalyzer = new LogAnalyzer();
+		logAnalyzer.isValidLogFilename("");
+
+
+	}
+
 }
