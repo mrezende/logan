@@ -2,12 +2,15 @@ package com.logan.main;
 
 public class LogAnalyzer {
 
+	ExtensionManager manager;
 
+	public LogAnalyzer(ExtensionManager manager) {
+		this.manager = manager;
+	}
 
 	public boolean isValidLogFilename(String filename) {
 
-		ExtensionManager extensionManager = new FileExtensionManager();
-		return extensionManager.isValid(filename);
+		return manager.isValid(filename);
 
 	}
 
