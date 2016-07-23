@@ -21,5 +21,15 @@ public class LogAnalyzerTests {
 
 	}
 
+	@Test
+	public void overrideTest() {
+		FakeExtensionManager manager = new FakeExtensionManager();
+		manager.setValid(true);
+
+		TestableLogAnalyzer logAnalyzer = new TestableLogAnalyzer(manager);
+		boolean valid = logAnalyzer.isValidLogFilename("file.txt");
+
+		Assert.assertTrue(valid);
+	}
 
 }
