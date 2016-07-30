@@ -4,6 +4,7 @@ import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.junit.runner.RunWith;
 
 
@@ -30,6 +31,20 @@ public class LogAnalyzerTests {
 		boolean valid = logAnalyzer.isValidLogFilename("file.txt");
 
 		Assert.assertTrue(valid);
+	}
+
+	@Test
+	public void analyze_TooShortFilename_CallsWebService() {
+		FakeWebService fakeWebService = new FakeWebService();
+
+		LogAnalyzer logAnalyzer = new LogAnalyzer(fakeWebService);
+
+		String tooShortFilename = "abc.txt";
+
+		logAnalyzer.analyze(tooShortFilename);
+
+		Assert.assertTrue("Filename too short:abc.txt".contains(fakeWebService.getLastError()));
+
 	}
 
 }
