@@ -33,18 +33,4 @@ public class LogAnalyzerTests {
 		Assert.assertTrue(valid);
 	}
 
-	@Test
-	public void analyze_TooShortFilename_CallsWebService() {
-		FakeWebService fakeWebService = new FakeWebService();
-
-		LogAnalyzer logAnalyzer = new LogAnalyzer(fakeWebService);
-
-		String tooShortFilename = "abc.txt";
-
-		logAnalyzer.analyze(tooShortFilename);
-
-		Assert.assertTrue("Filename too short:abc.txt".contains(fakeWebService.getLastError()));
-
-	}
-
 }

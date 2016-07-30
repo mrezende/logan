@@ -5,6 +5,6 @@ package com.logan.main;
  */
 public interface WebService {
 
-    void logError(String message);
+    void logError(String message) throws Exception;
 
 }

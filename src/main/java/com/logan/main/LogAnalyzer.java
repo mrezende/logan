@@ -22,7 +22,11 @@ public class LogAnalyzer {
 
 	public void analyze(String filename) {
 		if(filename.length() < 8) {
-			this.webService.logError("Filename too short:" + filename);
+			try {
+				this.webService.logError("Filename too short:" + filename);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
